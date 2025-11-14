@@ -216,50 +216,50 @@ nav {
 
 /* About Section */
 .about {
-  padding: 4rem 2rem;
-  background: #0f122a;
-  color: #e0e6ed;
+padding: 4rem 2rem;
+background: #0f122a;
+color: #e0e6ed;
 }
 
 .about-container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+justify-content: center;
+gap: 2rem;
+max-width: 1000px;
+margin: 0 auto;
 }
 
 .about-image img {
-  width: 250px;            /* Adjust size */
-  height: 300px;
-  border-radius: 20px;     /* Rounded corners */
-  object-fit: cover;
-  border: 3px solid rgba(0,255,255,0.4);
-  box-shadow: 0 0 30px rgba(0,255,255,0.3), 0 0 60px rgba(255,0,255,0.2);
-  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+width: 250px;            /* Adjust size */
+height: 300px;
+border-radius: 20px;     /* Rounded corners */
+object-fit: cover;
+border: 3px solid rgba(0,255,255,0.4);
+box-shadow: 0 0 30px rgba(0,255,255,0.3), 0 0 60px rgba(255,0,255,0.2);
+transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
 .about-image img:hover {
-  transform: scale(1.05);
-  border-color: rgba(255,0,255,0.6);
-  box-shadow: 0 0 40px rgba(0,255,255,0.5), 0 0 80px rgba(255,0,255,0.3);
+transform: scale(1.05);
+border-color: rgba(255,0,255,0.6);
+box-shadow: 0 0 40px rgba(0,255,255,0.5), 0 0 80px rgba(255,0,255,0.3);
 }
 
 .about-text {
-  flex: 1 1 400px;   /* Take remaining space */
+flex: 1 1 400px;   /* Take remaining space */
 }
 
 .about-text h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #00ffff;
+font-size: 2.5rem;
+margin-bottom: 1rem;
+color: #00ffff;
 }
 
 .about-text p {
-  font-size: 1.1rem;
-  line-height: 1.6;
+font-size: 1.1rem;
+line-height: 1.6;
 }
 
 
@@ -504,13 +504,13 @@ nav {
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-    animation: shimmer 2s infinite;
+    /* animation: shimmer 2s infinite; */ /* <-- Animation removed */
 }
 
-@keyframes shimmer {
+/* @keyframes shimmer {
     0% { left: -100%; }
     100% { left: 100%; }
-}
+} */ /* <-- Animation removed */
 
 /* Projects Section */
 .projects {
@@ -574,7 +574,7 @@ nav {
     width: 200%;
     height: 200%;
     background: conic-gradient(from 0deg, transparent, rgba(255,255,255,0.1), transparent);
-    animation: rotate 6s linear infinite;
+    /* animation: rotate 6s linear infinite; */ /* <-- Animation removed */
 }
 
 .project-content {
@@ -641,7 +641,7 @@ nav {
     width: 200%;
     height: 200%;
     background: conic-gradient(from 0deg, transparent, rgba(255,255,255,0.05), transparent);
-    animation: rotate 6s linear infinite;
+    /* animation: rotate 6s linear infinite; */ /* <-- Animation removed */
     pointer-events: none; /* ensures overlay doesn't block clicks */
 }
 
@@ -801,19 +801,21 @@ footer {
         display: flex;
     }
 
-            .nav-links {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: rgba(10, 14, 39, 0.95);
-                flex-direction: column;
-                padding: 2rem;
-                box-shadow: 0 10px 30px rgba(0,255,255,0.1);
-                transform: translateX(-100%);
-                transition: transform 0.3s;
-                backdrop-filter: blur(20px);
-            }    .nav-links.active {
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(10, 14, 39, 0.95);
+        flex-direction: column;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0,255,255,0.1);
+        transform: translateX(-100%);
+        transition: transform 0.3s;
+        backdrop-filter: blur(20px);
+    }
+    
+    .nav-links.active {
         transform: translateX(0);
     }
 
@@ -826,12 +828,13 @@ footer {
     }
 
     .about-container {
-        grid-template-columns: 1fr;
+        /* This was 'grid-template-columns: 1fr;' but it's a flex container, so changing to flex-direction */
+        flex-direction: column;
         gap: 2rem;
     }
 
     .about-image {
-        height: 300px;
+        height: 300px; /* This style was in your original media query, keeping it */
     }
 
     .skills-grid,
