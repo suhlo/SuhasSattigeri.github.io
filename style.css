@@ -10,88 +10,10 @@ body {
     color: #e0e6ed;
     background: #0a0e27;
     overflow-x: hidden;
+    padding-bottom: 120px; /* Space for floating dock */
 }
 
-/* Navigation */
-nav {
-    position: fixed;
-    width: 100%;
-    background: rgba(10, 14, 39, 0.95);
-    backdrop-filter: blur(20px);
-    padding: 1rem 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-    box-shadow: 0 2px 20px rgba(0,255,255,0.1);
-    border-bottom: 1px solid rgba(0,255,255,0.2);
-    transition: all 0.3s ease;
-}
-
-.logo {
-    font-size: 1.8rem;
-    font-weight: bold;
-    background: linear-gradient(135deg, #00ffff 0%, #ff00ff 50%, #ffff00 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: logoGlow 3s ease-in-out infinite;
-}
-
-@keyframes logoGlow {
-    0%, 100% { filter: drop-shadow(0 0 5px rgba(0,255,255,0.5)); }
-    50% { filter: drop-shadow(0 0 20px rgba(255,0,255,0.8)); }
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #e0e6ed;
-    font-weight: 500;
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-.nav-links a::before {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -5px;
-    left: 50%;
-    background: linear-gradient(90deg, #00ffff, #ff00ff);
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
-}
-
-.nav-links a:hover {
-    color: #00ffff;
-    text-shadow: 0 0 10px rgba(0,255,255,0.5);
-}
-
-.nav-links a:hover::before {
-    width: 100%;
-}
-
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
-}
-
-.menu-toggle span {
-    width: 25px;
-    height: 3px;
-    background: #00ffff;
-    transition: 0.3s;
-    box-shadow: 0 0 10px rgba(0,255,255,0.5);
-}
+/* Nav Removed */
 
 /* Hero Section */
 .hero {
@@ -841,4 +763,99 @@ footer {
     .projects-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* -----------------------------------------------------------
+   FLOATING DOCK STYLES
+   ----------------------------------------------------------- */
+.floating-dock-container {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    pointer-events: none; /* Allow clicks through container */
+}
+
+.floating-dock {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    display: flex;
+    gap: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    pointer-events: auto; /* Re-enable clicks for dock */
+    animation: slideUpDock 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes slideUpDock {
+    from { transform: translateY(100px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.dock-item {
+    color: #b0b8c5;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    text-decoration: none;
+}
+
+.dock-item svg {
+    width: 24px;
+    height: 24px;
+    transition: all 0.3s ease;
+}
+
+.dock-item:hover {
+    transform: translateY(-10px) scale(1.2);
+    color: #fff;
+    background: rgba(0, 255, 255, 0.2);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+}
+
+.dock-item:hover svg {
+    transform: scale(1.1);
+}
+
+.dock-item.active {
+    color: #0a0e27;
+    background: #00ffff;
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+}
+
+/* Tooltip */
+.dock-item::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    background: rgba(10, 14, 39, 0.9);
+    color: #00ffff;
+    padding: 0.3rem 0.8rem;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    opacity: 0;
+    transition: all 0.2s ease;
+    pointer-events: none;
+    white-space: nowrap;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.dock-item:hover::after {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+    top: -55px; /* Adjust tooltip position */
 }
