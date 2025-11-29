@@ -4,33 +4,61 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Suhas Sattigeri - Portfolio</title>
-    
+    <meta
+      name="description"
+      content="Portfolio of Suhas Sattigeri – Data Science, Analytics, and Frontend Development."
+    />
+
+    <!-- Main styles -->
     <link rel="stylesheet" href="style.css" />
-    
-    <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-    </script>
+
+    <!-- Font Awesome for icons (social + theme toggle) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- EmailJS SDK -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
     <script type="text/javascript">
-      (function(){
+      (function () {
         emailjs.init({
-          publicKey: "Il8OIORoO6d3bdksl", // Your Public Key
+          publicKey: "Il8OIORoO6d3bdksl",
         });
       })();
     </script>
-
   </head>
-  <body>
-    <nav>
+  <!-- default theme = dark -->
+  <body data-theme="dark">
+    <!-- Navbar -->
+    <nav id="mainNav">
       <div class="logo">SS</div>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#looking" class="nav-link">Looking</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
+
+      <!-- Theme toggle button -->
+      <button
+        class="theme-toggle"
+        id="themeToggle"
+        aria-label="Toggle light/dark theme"
+      >
+        <i class="fa-solid fa-moon"></i>
+      </button>
+
       <div class="menu-toggle" id="menuToggle">
         <span></span>
         <span></span>
@@ -38,252 +66,323 @@
       </div>
     </nav>
 
-  <section class="hero" id="home">
-  <div class="hero-content">
-    
-    <h1> 
-        Suhas Sattigeri</h1>
-    <p>Data Science, Analytics & Frontend development</p>
-    <a href="#contact" class="cta-button">Get In Touch</a>
-    <a href="SUHAS%20SATTIGERI%20(3).pdf" download class="cta-button" style="margin-left: 1rem;">
-    Resume
-    </a>
-  </div>
-</section>
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <h1>Suhas Sattigeri</h1>
+        <p>Data Science, Analytics & Frontend Development</p>
+        <div class="hero-actions">
+          <a href="#contact" class="cta-button">Get In Touch</a>
+          <a href="SUHAS%20SATTIGERI%20(3).pdf" download class="cta-button">
+            Resume
+          </a>
+        </div>
+      </div>
+    </section>
 
+    <!-- About -->
+    <section class="about reveal" id="about">
+      <div class="about-container">
+        <div class="about-image">
+          <img src="20250628_133055.jpg" alt="Suhas Sattigeri" />
+        </div>
+        <div class="about-text">
+          <h2>About Me</h2>
+          <p>
+            Hello! I'm Suhas Sattigeri, an organized and driven engineer
+            recognized for delivering high-quality work under tight deadlines. I
+            have a strong foundation in computer science, with focus areas in
+            Artificial Intelligence, Machine Learning, Data Analytics, and
+            Frontend Development. I’m committed to continuous learning and
+            contributing to impactful, real-world projects.
+          </p>
+        </div>
+      </div>
+    </section>
 
-<section class="about" id="about">
-  <div class="about-container">
-    <div class="about-image">
-      <img src="20250628_133055.jpg" alt="Suhas Sattigeri">
-    </div>
-    <div class="about-text">
-      <h2>About Me</h2>
-      <p>
-        Hello! I'm Suhas Sattigeri, organized and driven engineer recognized
-        for delivering high-quality work under tight deadlines. Demonstrates
-        strong skills and expertise with a solid foundation in computer
-        science, specifically in artificial intelligence, machine learning,
-        and graphic design, with a focus on contributing to innovative
-        projects. Committed to ongoing professional development and
-        mastering advanced technologies.
-      </p>
-    </div>
-  </div>
-</section>
+    <!-- What I'm Looking For -->
+    <section class="looking-for reveal" id="looking">
+      <div class="looking-container">
+        <h2>What I'm Looking For</h2>
+        <div class="looking-grid">
+          <div class="looking-item">
+            <h3>Roles</h3>
+            <p>
+              Actively looking for
+              <strong>Data Analyst</strong>, <strong>Data Engineer</strong> and
+              <strong>Software Engineer</strong> roles.
+            </p>
+          </div>
+          <div class="looking-item">
+            <h3>Location</h3>
+            <p>
+              Open to opportunities in
+              <strong>Bangalore, Pune, Mumbai, Hyderabad</strong>, as well as
+              <strong>Remote</strong> and <strong>Hybrid</strong> positions.
+            </p>
+          </div>
+          <div class="looking-item">
+            <h3>Availability</h3>
+            <p>
+              Available to join on a <strong>short notice</strong>. Open to
+              <strong>full-time</strong> roles and <strong>internships</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<section class="experience" id="experience">
-    <h2>Experience Timeline</h2>
-    <div class="timeline-container">
-
+    <!-- Experience -->
+    <section class="experience reveal" id="experience">
+      <h2>Experience Timeline</h2>
+      <div class="timeline-container">
         <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">Feb 2025 - May 2025</div>
-            <div class="timeline-content">
-                <h3>Web Development and Data Science Intern</h3>
-                <h4>Insystel Technology Solutions Pvt. Ltd.</h4>
-                <p>Gained practical experience bridging front-end web development and data science concepts, focusing on implementing analytical tools within web applications.</p>
-                <div class="project-tags">
-                    <span class="tag">Web Dev</span>
-                    <span class="tag">Data Science</span>
-                    <span class="tag">Analytics</span>
-                </div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Feb 2025 - May 2025</div>
+          <div class="timeline-content">
+            <h3>Web Development and Data Science Intern</h3>
+            <h4>Insystel Technology Solutions Pvt. Ltd.</h4>
+            <p>
+              Bridged front-end web development and data science concepts,
+              implementing analytical tools within web applications.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Web Dev</span>
+              <span class="tag">Data Science</span>
+              <span class="tag">Analytics</span>
             </div>
-        </div>
-
-        <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">Nov 2023 - Dec 2023</div>
-            <div class="timeline-content">
-                <h3>Web Development Intern</h3>
-                <h4>Incubated at Innovation and Incubation Center</h4>
-                <p>Focused on rapid development and prototyping of web-based solutions within an incubation environment, strengthening skills in front-end implementation and project execution under tight deadlines.</p>
-                <div class="project-tags">
-                    <span class="tag">HTML/CSS/JS</span>
-                    <span class="tag">Prototyping</span>
-                    <span class="tag">UI Implementation</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="timeline-item">
-            <div class="timeline-dot co-curricular"></div>
-            <div class="timeline-date">Co-Curricular</div>
-            <div class="timeline-content">
-                <h3>Organizer, WAVE 2.0 National Level Hackathon</h3>
-                <h4>Directed the Publicity Team</h4>
-                <p>Played a pivotal role in organizing a successful national event, leading the publicity team to draw 90+ teams and over 360+ participants. Demonstrated strong organizational and communication skills.</p>
-                <div class="project-tags">
-                    <span class="tag">Event Management</span>
-                    <span class="tag">Publicity</span>
-                    <span class="tag">Leadership</span>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-
-
-    <section class="skills" id="skills">
-  <h2>My Skills</h2>
-  <div class="skills-grid">
-
-    <div class="skill-card">
-      <div class="skill-icon">💻</div>
-      <h3>Programming Languages</h3>
-      <p>C, Python, JavaScript, HTML, CSS, MySQL</p>
-      <div class="skill-bar">
-        <div class="skill-progress" style="width: 90%"></div>
-      </div>
-    </div>
-
-    <div class="skill-card">
-      <div class="skill-icon">📊</div>
-      <h3>Data Science & AI/ML</h3>
-      <p>Data Analytics, EDA, ANN, Machine Learning, NLP</p>
-      <div class="skill-bar">
-        <div class="skill-progress" style="width: 80%"></div>
-      </div>
-    </div>
-
-    <div class="skill-card">
-      <div class="skill-icon">🎨</div>
-      <h3>Design & Creativity</h3>
-      <p>Graphic Design, UI/UX Design, Figma, Adobe XD</p>
-      <div class="skill-bar">
-        <div class="skill-progress" style="width: 75%"></div>
-      </div>
-    </div>
-
-    <div class="skill-card">
-      <div class="skill-icon">🧠</div>
-      <h3>Domains of Interest</h3>
-      <p>Artificial Intelligence, Machine Learning, Web Development, Data Analytics</p>
-      <div class="skill-bar">
-        <div class="skill-progress" style="width: 85%"></div>
-      </div>
-    </div>
-    </div>
-  </div>
-</section>
-
-
-    <section class="projects" id="projects">
-  <h2> Projects</h2>
-  <div class="projects-grid">
-
-    <div class="project-card">
-      <div class="project-image">
-        <img src="try.png" alt="AI Virtual Try-On Project">
-      </div>
-
-      <div class="project-content">
-        <h3>AI-Based Virtual Try-On System</h3>
-        <p>
-          Developed an AI-powered virtual try-on system that allows users to experience clothing on virtual models or themselves through augmented reality, enhancing the online shopping experience and reducing returns.
-        </p>
-        <div class="project-tags">
-          <span class="tag">Python</span>
-          <span class="tag">OpenCV</span>
-          <span class="tag">CNN</span>
-          <span class="tag">Flask</span>
-        </div>
-        <a href="https://github.com/suhlo" class="project-btn" target="_blank">🔗 View Project</a>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-image">
-        <img src="car.png" alt="Car Price Prediction Project">
-      </div>
-      <div class="project-content">
-        <h3>CarPricePro – Vehicle Price Prediction</h3>
-        <p>
-          Built an AI-driven predictive analytics model analyzing 1000+ vehicle listings to predict accurate car prices and provide insights for pricing strategies.
-        </p>
-        <div class="project-tags">
-          <span class="tag">Python</span>
-          <span class="tag">Machine Learning</span>
-          <span class="tag">Pandas</span>
-          <span class="tag">Scikit-learn</span>
-        </div>
-        <a href="https://github.com/suhlo" class="project-btn" target="_blank">🔗 View Project</a>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-image">
-        <img src="text.png" alt="Text Classification Project">
-      </div>
-      <div class="project-content">
-        <h3>Text Classification on Dravidian Languages</h3>
-        <p>
-          Developed a natural language processing model for text classification in Dravidian languages, implementing preprocessing, feature extraction, and ML algorithms for accurate categorization.
-        </p>
-        <div class="project-tags">
-          <span class="tag">Python</span>
-          <span class="tag">NLP</span>
-          <span class="tag">Scikit-learn</span>
-          <span class="tag">Text Classification</span>
-        </div>
-        <a href="https://github.com/suhlo" class="project-btn" target="_blank">🔗 View Project</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-<section class="experience" id="education">
-    <h2>Educational History</h2>
-    <div class="timeline-container">
-
-        <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">2023 - 2025</div>
-            <div class="timeline-content">
-                <h3>Bachelor's of Engineering in AI and Machine Learning</h3>
-                <h4>Basaveshwar Engineering College, Bagalkot</h4>
-                <p>Focused on the theoretical and practical application of Artificial Intelligence and Machine Learning principles.</p>
-                <div class="education-details">
-                    
-                </div>
-                <div class="project-tags">
-                    <span class="tag">AI/ML</span>
-                    <span class="tag">Computer Science</span>
-                    <span class="tag">Data Management</span>
-                </div>
-            </div>
+          </div>
         </div>
 
         <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">2019 - 2022</div>
-            <div class="timeline-content">
-                <h3>Diploma in Computer Science and Engineering</h3>
-                <h4>R. N. Shetty Polytechnic, Belagavi</h4>
-                <p>Built a solid foundation in core computer science principles and engineering practices.</p>
-                <div class="education-details">
-                
-                </div>
-                <div class="project-tags">
-                    <span class="tag">Software Development</span>
-                    <span class="tag">Engineering</span>
-                    <span class="tag">Core Concepts</span>
-                </div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Nov 2023 - Dec 2023</div>
+          <div class="timeline-content">
+            <h3>Web Development Intern</h3>
+            <h4>Innovation and Incubation Center</h4>
+            <p>
+              Built and prototyped web-based solutions in an incubation
+              environment, strengthening front-end implementation and project
+              execution.
+            </p>
+            <div class="project-tags">
+              <span class="tag">HTML/CSS/JS</span>
+              <span class="tag">Prototyping</span>
+              <span class="tag">UI Implementation</span>
             </div>
+          </div>
         </div>
 
-    </div>
-</section>
+        <div class="timeline-item">
+          <div class="timeline-dot co-curricular"></div>
+          <div class="timeline-date">Co-Curricular</div>
+          <div class="timeline-content">
+            <h3>Organizer, WAVE 2.0 National Level Hackathon</h3>
+            <h4>Publicity Team Lead</h4>
+            <p>
+              Led the publicity team to attract 90+ teams and over 360+
+              participants, showcasing strong communication and coordination
+              skills.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Event Management</span>
+              <span class="tag">Publicity</span>
+              <span class="tag">Leadership</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- Skills -->
+    <section class="skills reveal" id="skills">
+      <h2>My Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon">💻</div>
+          <h3>Programming Languages</h3>
+          <p>C, Python, JavaScript, HTML, CSS, MySQL</p>
+          <div class="skill-bar">
+            <div class="skill-progress" data-width="90%"></div>
+          </div>
+        </div>
 
-    <section class="contact" id="contact">
+        <div class="skill-card">
+          <div class="skill-icon">📊</div>
+          <h3>Data Science & AI/ML</h3>
+          <p>Data Analytics, EDA, ANN, Machine Learning, NLP</p>
+          <div class="skill-bar">
+            <div class="skill-progress" data-width="80%"></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">🎨</div>
+          <h3>Design & Creativity</h3>
+          <p>Graphic Design, UI/UX Design, Figma, Adobe XD</p>
+          <div class="skill-bar">
+            <div class="skill-progress" data-width="75%"></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">🧠</div>
+          <h3>Domains of Interest</h3>
+          <p>
+            Artificial Intelligence, Machine Learning, Web Development, Data
+            Analytics
+          </p>
+          <div class="skill-bar">
+            <div class="skill-progress" data-width="85%"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="projects reveal" id="projects">
+      <h2>Projects</h2>
+
+      <!-- Filters -->
+      <div class="project-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="ai-ml">AI / ML</button>
+        <button class="filter-btn" data-filter="data">Data & Analytics</button>
+        <button class="filter-btn" data-filter="nlp">NLP</button>
+      </div>
+
+      <div class="projects-grid">
+        <div class="project-card" data-category="ai-ml">
+          <div class="project-image">
+            <img src="try.png" alt="AI Virtual Try-On Project" />
+          </div>
+
+          <div class="project-content">
+            <h3>AI-Based Virtual Try-On System</h3>
+            <p>
+              Built a virtual try-on system that lets users see clothing on
+              virtual models or themselves, improving online shopping and
+              reducing return rates.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">OpenCV</span>
+              <span class="tag">CNN</span>
+              <span class="tag">Flask</span>
+            </div>
+            <a
+              href="https://github.com/suhlo"
+              class="project-btn"
+              target="_blank"
+              >🔗 View Project</a
+            >
+          </div>
+        </div>
+
+        <div class="project-card" data-category="data">
+          <div class="project-image">
+            <img src="car.png" alt="Car Price Prediction Project" />
+          </div>
+          <div class="project-content">
+            <h3>CarPricePro – Vehicle Price Prediction</h3>
+            <p>
+              Created a predictive model analyzing 1000+ vehicle listings to
+              estimate accurate car prices and support pricing strategies.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Machine Learning</span>
+              <span class="tag">Pandas</span>
+              <span class="tag">Scikit-learn</span>
+            </div>
+            <a
+              href="https://github.com/suhlo"
+              class="project-btn"
+              target="_blank"
+              >🔗 View Project</a
+            >
+          </div>
+        </div>
+
+        <div class="project-card" data-category="nlp">
+          <div class="project-image">
+            <img src="text.png" alt="Text Classification Project" />
+          </div>
+          <div class="project-content">
+            <h3>Text Classification on Dravidian Languages</h3>
+            <p>
+              Developed an NLP pipeline for text classification in Dravidian
+              languages, including preprocessing, feature extraction, and model
+              training.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">NLP</span>
+              <span class="tag">Scikit-learn</span>
+              <span class="tag">Text Classification</span>
+            </div>
+            <a
+              href="https://github.com/suhlo"
+              class="project-btn"
+              target="_blank"
+              >🔗 View Project</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="experience reveal" id="education">
+      <h2>Educational History</h2>
+      <div class="timeline-container">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2023 - 2025</div>
+          <div class="timeline-content">
+            <h3>Bachelor of Engineering in AI & ML</h3>
+            <h4>Basaveshwar Engineering College, Bagalkot</h4>
+            <p>
+              Focused on the theoretical and practical applications of
+              Artificial Intelligence and Machine Learning.
+            </p>
+            <div class="education-details">
+              <!-- optional: GPA, coursework, etc -->
+            </div>
+            <div class="project-tags">
+              <span class="tag">AI/ML</span>
+              <span class="tag">Computer Science</span>
+              <span class="tag">Data Management</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2019 - 2022</div>
+          <div class="timeline-content">
+            <h3>Diploma in Computer Science & Engineering</h3>
+            <h4>R. N. Shetty Polytechnic, Belagavi</h4>
+            <p>
+              Built a solid base in core computer science concepts and
+              engineering practices.
+            </p>
+            <div class="education-details"></div>
+            <div class="project-tags">
+              <span class="tag">Software Development</span>
+              <span class="tag">Engineering</span>
+              <span class="tag">Core Concepts</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact reveal" id="contact">
       <h2>Get In Touch</h2>
       <div class="contact-container">
-        <form class="contact-form" id="contact-form"> 
+        <form class="contact-form" id="contact-form">
           <div class="form-group">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" required />
@@ -297,23 +396,41 @@
             <textarea id="message" name="message" required></textarea>
           </div>
           <button type="submit" class="submit-button">Send Message</button>
-          
-          <p id="form-message" style="margin-top: 15px; font-weight: bold;"></p>
+
+          <p id="form-message" style="margin-top: 15px; font-weight: bold"></p>
         </form>
       </div>
     </section>
 
+    <!-- Footer with icons -->
     <footer>
-  <div class="social-links">
-    <a href="https://www.linkedin.com/in/suhas-sattigeri-4672aa248" target="_blank">LinkedIn</a>
-    <a href="https://github.com/suhlo" target="_blank">GitHub</a>
-    <a href="mailto:suhassattigeri@gmail.com">Email</a>
-    <a href="tel:+919844480877">Call</a>
-  </div>
-  <p>&copy; 2025 Suhas Sattigeri. All rights reserved.</p>
-</footer>
+      <div class="social-links">
+        <a
+          href="https://www.linkedin.com/in/suhas-sattigeri-4672aa248"
+          target="_blank"
+          aria-label="LinkedIn"
+        >
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+
+        <a href="https://github.com/suhlo" target="_blank" aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+
+        <a href="mailto:suhassattigeri@gmail.com" aria-label="Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+
+        <a href="tel:+919844480877" aria-label="Call">
+          <i class="fa-solid fa-phone"></i>
+        </a>
+      </div>
+      <p>&copy; 2025 Suhas Sattigeri. All rights reserved.</p>
+    </footer>
+
+    <!-- Back to top -->
+    <button id="backToTop" aria-label="Back to top">↑</button>
 
     <script src="script.js" defer></script>
-    
   </body>
 </html>
