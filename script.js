@@ -1,6 +1,19 @@
-// ------------------------------------------------------------------
-// SMOOTH SCROLL (Top Nav logic removed)
-// ------------------------------------------------------------------
+// Mobile menu toggle
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
+
+// Close mobile menu when clicking a link
+document.querySelectorAll(".nav-links a").forEach((link) => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+  });
+});
+
+// Smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();
@@ -14,121 +27,60 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-// ------------------------------------------------------------------
-// SKILL BARS ANIMATION
-// ------------------------------------------------------------------
+// Animate skill bars on scroll
 const skillBars = document.querySelectorAll(".skill-progress");
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(
     (entry) => {
       if (entry.isIntersecting) {
+        // Get the width from the style attribute and apply it
         const width = entry.target.getAttribute("style").split(":")[1].trim();
         entry.target.style.width = width;
+      } else {
+        // Optional: Reset animation when out of view
+        // entry.target.style.width = '0%';
       }
     },
-    { threshold: 0.5 }
+    {
+      threshold: 0.5, // Trigger when 50% of the element is visible
+    }
   );
 });
+
 skillBars.forEach((bar) => observer.observe(bar));
 
 // ------------------------------------------------------------------
-// GENERAL SCROLL REVEAL ANIMATION (New Feature)
+// UPDATED: EmailJS Form submission script with your IDs
 // ------------------------------------------------------------------
-// This observes headings, cards, and timeline items to fade them in on scroll
-const revealElements = document.querySelectorAll(
-  "section h2, .project-card, .skill-card, .timeline-item, .about-container"
-);
 
-const revealObserver = new IntersectionObserver(
-  (entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("revealed");
-        observer.unobserve(entry.target); // Run animation only once
-      }
-    });
-  },
-  {
-    threshold: 0.15, // Trigger when 15% of element is visible
-    rootMargin: "0px 0px -50px 0px", // Offset slightly so it triggers before bottom
-  }
-);
-
-revealElements.forEach((el) => {
-  el.classList.add("hidden-reveal"); // Add base class for hidden state
-  revealObserver.observe(el);
-});
-
-// ------------------------------------------------------------------
-// FLOATING DOCK LOGIC
-// ------------------------------------------------------------------
-const sections = document.querySelectorAll("section");
-const dockItems = document.querySelectorAll(".dock-item");
-const dockObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute("id");
-        dockItems.forEach((item) => item.classList.remove("active"));
-        const activeLink = document.querySelector(`.dock-item[href="#${id}"]`);
-        if (activeLink) activeLink.classList.add("active");
-      }
-    });
-  },
-  { threshold: 0.3 }
-);
-sections.forEach((section) => dockObserver.observe(section));
-
-// ------------------------------------------------------------------
-// EMAIL JS (Improved UX)
-// ------------------------------------------------------------------
+// Your EmailJS IDs
 const SERVICE_ID = "service_bsffqy3";
 const TEMPLATE_ID = "template_90p6wy8";
+
 const form = document.getElementById("contact-form");
 const formMessage = document.getElementById("form-message");
 
-if (form) {
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
+form.addEventListener("submit", function (event) {
+  event.preventDefault(); // Stop page reload
 
-    const btn = form.querySelector('button[type="submit"]');
-    const originalBtnText = btn.textContent;
+  formMessage.textContent = "Sending message...";
+  formMessage.style.color = "#e0e6ed"; // Use light text for sending
 
-    // 1. Loading State
-    formMessage.textContent = "Sending message...";
-    formMessage.style.color = "#e0e6ed";
-    btn.disabled = true; // Prevent double clicks
-    btn.textContent = "Sending...";
-    btn.style.opacity = "0.7";
+  emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, this).then(
+    function (response) {
+      // Success
+      console.log("SUCCESS!", response.status, response.text);
+      formMessage.textContent = "Message sent successfully! Thank you.";
+      formMessage.style.color = "#00ffff"; // Use accent color for success
+      form.reset(); // Clear the form fields
+    },
+    function (error) {
+      // Failure
+      console.error("FAILED...", error);
+      formMessage.textContent = "Failed to send. Please try again.";
+      formMessage.style.color = "#ff00ff"; // Use other accent for error
+    }
+  );
+});
 
-    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, this).then(
-      function (response) {
-        // 2. Success State
-        formMessage.textContent = "Message sent successfully! Thank you.";
-        formMessage.style.color = "#00ffff";
-        form.reset();
-
-        // Reset button
-        btn.disabled = false;
-        btn.textContent = originalBtnText;
-        btn.style.opacity = "1";
-
-        // Clear success message after 5 seconds
-        setTimeout(() => {
-          formMessage.textContent = "";
-        }, 5000);
-      },
-      function (error) {
-        // 3. Error State
-        console.error("FAILED...", error);
-        formMessage.textContent = "Failed to send. Please try again.";
-        formMessage.style.color = "#ff00ff";
-
-        // Reset button
-        btn.disabled = false;
-        btn.textContent = originalBtnText;
-        btn.style.opacity = "1";
-      }
-    );
-  });
-}
+// ------------------------------------------------------------------
