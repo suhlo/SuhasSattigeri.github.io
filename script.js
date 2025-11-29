@@ -1,6 +1,4 @@
-// ------------------------------------------------------------------
-// SMOOTH SCROLL (Top Nav logic removed)
-// ------------------------------------------------------------------
+// Smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();
@@ -14,21 +12,26 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-// ------------------------------------------------------------------
-// SKILL BARS ANIMATION
-// ------------------------------------------------------------------
+// Animate skill bars on scroll
 const skillBars = document.querySelectorAll(".skill-progress");
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(
     (entry) => {
       if (entry.isIntersecting) {
+        // Get the width from the style attribute and apply it
         const width = entry.target.getAttribute("style").split(":")[1].trim();
         entry.target.style.width = width;
+      } else {
+        // Optional: Reset animation when out of view
+        // entry.target.style.width = '0%';
       }
     },
-    { threshold: 0.5 }
+    {
+      threshold: 0.5, // Trigger when 50% of the element is visible
+    }
   );
 });
+
 skillBars.forEach((bar) => observer.observe(bar));
 
 // ------------------------------------------------------------------
@@ -36,6 +39,7 @@ skillBars.forEach((bar) => observer.observe(bar));
 // ------------------------------------------------------------------
 const sections = document.querySelectorAll("section");
 const dockItems = document.querySelectorAll(".dock-item");
+
 const dockObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -49,57 +53,40 @@ const dockObserver = new IntersectionObserver(
   },
   { threshold: 0.3 }
 );
+
 sections.forEach((section) => dockObserver.observe(section));
 
 // ------------------------------------------------------------------
-// EMAIL JS (Improved UX)
+// UPDATED: EmailJS Form submission script with your IDs
 // ------------------------------------------------------------------
+
+// Your EmailJS IDs
 const SERVICE_ID = "service_bsffqy3";
 const TEMPLATE_ID = "template_90p6wy8";
+
 const form = document.getElementById("contact-form");
 const formMessage = document.getElementById("form-message");
 
 if (form) {
   form.addEventListener("submit", function (event) {
-    event.preventDefault();
+    event.preventDefault(); // Stop page reload
 
-    const btn = form.querySelector('button[type="submit"]');
-    const originalBtnText = btn.textContent;
-
-    // 1. Loading State
     formMessage.textContent = "Sending message...";
-    formMessage.style.color = "#e0e6ed";
-    btn.disabled = true; // Prevent double clicks
-    btn.textContent = "Sending...";
-    btn.style.opacity = "0.7";
+    formMessage.style.color = "#e0e6ed"; // Use light text for sending
 
     emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, this).then(
       function (response) {
-        // 2. Success State
+        // Success
+        console.log("SUCCESS!", response.status, response.text);
         formMessage.textContent = "Message sent successfully! Thank you.";
-        formMessage.style.color = "#00ffff";
-        form.reset();
-
-        // Reset button
-        btn.disabled = false;
-        btn.textContent = originalBtnText;
-        btn.style.opacity = "1";
-
-        // Clear success message after 5 seconds
-        setTimeout(() => {
-          formMessage.textContent = "";
-        }, 5000);
+        formMessage.style.color = "#00ffff"; // Use accent color for success
+        form.reset(); // Clear the form fields
       },
       function (error) {
-        // 3. Error State
+        // Failure
         console.error("FAILED...", error);
         formMessage.textContent = "Failed to send. Please try again.";
-        formMessage.style.color = "#ff00ff";
-
-        // Reset button
-        btn.disabled = false;
-        btn.textContent = originalBtnText;
-        btn.style.opacity = "1";
+        formMessage.style.color = "#ff00ff"; // Use other accent for error
       }
     );
   });

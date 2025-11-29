@@ -426,13 +426,7 @@ line-height: 1.6;
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-    /* animation: shimmer 2s infinite; */ /* <-- Animation removed */
 }
-
-/* @keyframes shimmer {
-    0% { left: -100%; }
-    100% { left: 100%; }
-} */ /* <-- Animation removed */
 
 /* Projects Section */
 .projects {
@@ -496,7 +490,6 @@ line-height: 1.6;
     width: 200%;
     height: 200%;
     background: conic-gradient(from 0deg, transparent, rgba(255,255,255,0.1), transparent);
-    /* animation: rotate 6s linear infinite; */ /* <-- Animation removed */
 }
 
 .project-content {
@@ -563,7 +556,6 @@ line-height: 1.6;
     width: 200%;
     height: 200%;
     background: conic-gradient(from 0deg, transparent, rgba(255,255,255,0.05), transparent);
-    /* animation: rotate 6s linear infinite; */ /* <-- Animation removed */
     pointer-events: none; /* ensures overlay doesn't block clicks */
 }
 
@@ -723,24 +715,6 @@ footer {
         display: flex;
     }
 
-    .nav-links {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: rgba(10, 14, 39, 0.95);
-        flex-direction: column;
-        padding: 2rem;
-        box-shadow: 0 10px 30px rgba(0,255,255,0.1);
-        transform: translateX(-100%);
-        transition: transform 0.3s;
-        backdrop-filter: blur(20px);
-    }
-    
-    .nav-links.active {
-        transform: translateX(0);
-    }
-
     .hero h1 {
         font-size: 2.5rem;
     }
@@ -783,10 +757,10 @@ footer {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 0.8rem 1.5rem;
+    padding: 0.6rem 1.2rem; /* Reduced padding */
     border-radius: 50px;
     display: flex;
-    gap: 1.5rem;
+    gap: 1.2rem; /* Reduced gap */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     pointer-events: auto; /* Re-enable clicks for dock */
     animation: slideUpDock 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
@@ -799,26 +773,26 @@ footer {
 
 .dock-item {
     color: #b0b8c5;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s ease;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50px;
-    height: 50px;
+    width: 45px; /* Reduced size */
+    height: 45px; /* Reduced size */
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.05);
     text-decoration: none;
 }
 
 .dock-item svg {
-    width: 24px;
-    height: 24px;
+    width: 22px; /* Adjusted icon size */
+    height: 22px;
     transition: all 0.3s ease;
 }
 
 .dock-item:hover {
-    transform: translateY(-10px) scale(1.2);
+    transform: translateY(-8px) scale(1.1);
     color: #fff;
     background: rgba(0, 255, 255, 0.2);
     box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
